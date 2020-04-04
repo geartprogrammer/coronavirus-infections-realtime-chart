@@ -1,0 +1,2 @@
+# Coronavirus infections realtime chart
+
