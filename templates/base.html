@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+ <html style="overflow-y: scroll" xmlns="http://www.w3.org/1999/html">
+    <head>
+      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style type="text/css">
+          .mobileShow {display: none;}
+
+          @media only screen
+            and (min-device-width : 320px)
+            and (max-device-width : 480px){
+              .mobileShow {display: inline;}
+          }
+        </style>
+    </head>
+    <body>
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <div class='container'>
+    {% block content %}{% endblock %}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+	        M.FormSelect.init(document.querySelector("select"));
+        });
+    </script>
+    </body>
+
+  </html>
