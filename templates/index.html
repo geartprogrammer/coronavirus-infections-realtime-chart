@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class='row'>
+    <form method='get'>
+        <input id='country' type='text' name='country'>
+        <label for='country'>Country</label>
+        <button>Search</button>
+    </form>
+</div>
+
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{ DATES | safe }},
+        datasets: [{
+            label: 'Infections in {{ COUNTRY }}',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{ INFECTIONS }}
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+</script>
+
+
+{% endblock %}
